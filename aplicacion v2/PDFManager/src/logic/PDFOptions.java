@@ -60,4 +60,17 @@ public class PDFOptions {
 		document.close();
 		return bim;
 	}
+
+	public static int getNumerOfPDFPages(String pdf){
+		try {
+			PDDocument documento = PDDocument.load(new File(pdf));
+			int numPags = documento.getNumberOfPages();
+			documento.close();
+			return numPags;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return 1;
+	}
+
 }
